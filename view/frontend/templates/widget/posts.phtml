@@ -1,0 +1,41 @@
+<style>
+#bl .sp{
+    border:1px solid #ddd;
+    float :left;
+    padding : 3px;
+    margin: 10px;
+    height:200px;
+    width:200px;
+}
+.sp img{
+    border:1px solid orange;
+    padding :3px;
+    width : 150px;
+    height:150px;
+    margin-left:55px;
+    margin-top: 5px;
+}
+#bl .cls{
+    clear: left;
+    margin-bottom: 5px;
+}
+#bl .title{
+    color:red;
+}
+</style>
+<div id="bl">
+    <?php
+    $break = $this->getData("recordrows");
+    $urlMedia = $this->getBaseUrlmedia();
+    $blogs = $this->getData("blog");
+    foreach ($blogs as $blog) {
+        ?>
+        <div class="sp">
+            <h3 class="title"><?php echo $blog['title']?></h3>
+            <img src="<?php echo $urlMedia."blogg/images/".$blog['image'];?> " >
+        </div>
+        <div class="cls"></div>
+        <?php
+    }
+    ?>
+</div>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+
+    <widget id="vietdung_blogg_widget" class="Vietdung\Blogg\Block\Blogg\Widget\Posts">
+        <label translate="true">
+            Blog Widget
+        </label>
+        <description translate="true">
+            Display Blog Information
+        </description>
+        <parameters>
+            <parameter name="recordrows" xsi:type="text" visible="true">
+                <label translate="true">Record on Rows</label>
+            </parameter>
+            <parameter name="recordshow" xsi:type="text" visible="true">
+                <label translate="true">Input id record to Display</label>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>
+
