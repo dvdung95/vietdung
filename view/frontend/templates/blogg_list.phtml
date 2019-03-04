@@ -1,44 +1,64 @@
 <style>
-    #bl .sp{
-        border:1px solid #ddd;
-        float :left;
-        padding:3px;
+    #bl .sp {
+        border: 1px solid #ddd;
+        float: left;
+        padding: 3px;
         margin: 10px;
-        height:200px;
-        width:200px;
+        height: 200px;
+        width: 200px;
     }
-    .sp img{
-        border:1px solid orange;
-        padding :3px;
-        width : 150px;
-        height:150px;
-        margin-left:55px;
+
+    .sp img {
+        border: 1px solid orange;
+        padding: 3px;
+        width: 150px;
+        height: 150px;
+        margin-left: 55px;
         margin-top: 5px;
     }
-    #bl .cls{
+
+    #bl .cls {
         clear: left;
         margin-bottom: 5px;
     }
-    #bl .title{
-        color:red;
+
+    #bl .title {
+        color: red;
+    }
+
+    div.perpage {
+        padding-top: 50px;
+        color: red;
+        clear: both;
     }
 </style>
 <div id="bl">
+
     <?php
     $break = 3;
     $urlMedia = $this->getBaseUrlmedia();
-    $blogs = $this->getData("blog");
+    $blogs = $this->getBlogList();
     $i = 1;
-    foreach ($blogs as $blog): $i++;?>
+
+    if ($blogs->getSize()) {
+    foreach ($blogs as $blog): $i++; ?>
         <div class="sp">
-            <h3 class="title"><?php echo $blog['title']?></h3>
-            <img src="<?php echo $urlMedia."blogg/images/".$blog['image'];?> " alt="#">
+            <h3 class="title"><?php echo $blog['title'] ?></h3>
+            <img src="<?php echo $urlMedia . "blogg/images/" . $blog['image']; ?> " alt="<?php echo $blog['title']; ?>">
         </div>
-        <?php if($i>$break): $i =1;?>
+        <?php if ($i > $break): $i = 1; ?>
 
-            <div class='cls'></div>
+        <div class='cls'></div>
+    <?php endif ?>
 
-        <?php endif ?>
+    <?php endforeach; ?>
+        <div class="perpage">
+            <?php echo $this->getPager(); ?>
+        </div>
+    <?php }else { ?>
 
-    <?php endforeach ?>
+        <script> alert('ok');</script>
+
+    <?php } ?>
 </div>
+

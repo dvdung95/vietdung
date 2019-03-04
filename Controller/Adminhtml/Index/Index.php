@@ -23,6 +23,7 @@ class Index extends Action
         $rsPage = $this->_pageFactory->create();
         $rsPage->setActiveMenu('Vietdung_Blogg::blog');
         $rsPage->getConfig()->getTitle()->prepend(__("Blog Manager"));
+
         return $rsPage;
     }
 }
