@@ -12,6 +12,7 @@ use Magento\Framework\View\Result\PageFactory;
 
 class Index extends Action
 {
+    const ADMIN_RESOURCE = "Vietdung_Blogg::list";
     protected $_pageFactory;
     public function __construct(Action\Context $context,PageFactory $pageFactory)
     {
@@ -23,6 +24,7 @@ class Index extends Action
         $rsPage = $this->_pageFactory->create();
         $rsPage->setActiveMenu('Vietdung_Blogg::blog');
         $rsPage->getConfig()->getTitle()->prepend(__("Blog Manager"));
+
         return $rsPage;
     }
 }

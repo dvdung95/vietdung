@@ -12,7 +12,8 @@
     <body>
         <referenceContainer name="content">
             <block class="Vietdung\Blogg\Block\Blogg" name="blog.list" template="blogg_list.phtml">
-
+                <block class="Magento\Theme\Block\Html\Pager" name="blogg_list_pager" as="blogg_list_pager">
+                </block>
             </block>
         </referenceContainer>
     </body>
