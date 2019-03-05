@@ -12,6 +12,7 @@ use Magento\Framework\View\Result\PageFactory;
 
 class Index extends Action
 {
+    const ADMIN_RESOURCE = "Vietdung_Blogg::list";
     protected $_pageFactory;
     public function __construct(Action\Context $context,PageFactory $pageFactory)
     {

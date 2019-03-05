@@ -51,18 +51,21 @@ class Blogg extends Template
 ////        var_dump($this->getBlogList());die;
 //        echo $this->getBlogList()->getSelectSql()->__toString();die;
 //        return parent::_beforeToHtml();
-
+//    echo "<pre>";
+//    var_dump($this->getBlogList());
+//    die;
 //    }
     public function getBlogList()
     {
         $blogg = $this->_bloggCollectionFactory->create();
+//        $a = $blogg->getData();
         $blogg->setCurPage($this->getCurrentPage())->setPageSize(2);
         return $blogg;
     }
 
     public function getCurrentPage()
     {
-        $request = $this->_request->getParam('p');
+        $request = $this->_request->getParam('page');
         if ($request) {
             $page = $request;
         } else {
@@ -73,6 +76,7 @@ class Blogg extends Template
     public function getPager(){
         $pager = $this->getChildBlock("blogg_list_pager");
         $pager->setTemplate("Vietdung_Blogg::pager.phtml");
+        $pager->setPageVarName("page");
         $collection = $this->getBlogList();
         $pager->setAvailableLimit([2=>2]);
         $pager->setTotalNum($collection->getSize());

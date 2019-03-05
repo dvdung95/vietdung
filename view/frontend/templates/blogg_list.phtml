@@ -33,27 +33,25 @@
     }
 </style>
 <div id="bl">
-
     <?php
     $break = 3;
     $urlMedia = $this->getBaseUrlmedia();
     $blogs = $this->getBlogList();
     $i = 1;
-
     if ($blogs->getSize()) {
     foreach ($blogs as $blog): $i++; ?>
         <div class="sp">
             <h3 class="title"><?php echo $blog['title'] ?></h3>
             <img src="<?php echo $urlMedia . "blogg/images/" . $blog['image']; ?> " alt="<?php echo $blog['title']; ?>">
         </div>
-        <?php if ($i > $break): $i = 1; ?>
+        <?php if ($i > $break): $i = 1;?>
 
         <div class='cls'></div>
     <?php endif ?>
 
     <?php endforeach; ?>
         <div class="perpage">
-            <?php echo $this->getPager(); ?>
+            <?php echo $this->getPager();?>
         </div>
     <?php }else { ?>
 

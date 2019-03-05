@@ -174,15 +174,16 @@
                 <sortable>false</sortable>
             </settings>
         </column>
-        <column name="title">
+        <actionsColumn name="title" class="Vietdung\Blogg\Ui\Component\Listing\Columns\ConfigTitle">
             <settings>
                 <filter>text</filter>
+                <bodyTmpl>ui/grid/cells/html</bodyTmpl>
                 <editor>
                     <editorType>text</editorType>
                 </editor>
                 <label translate="true">Title</label>
             </settings>
-        </column>
+        </actionsColumn>
 
         <column name="description">
             <settings>
@@ -191,7 +192,7 @@
             </settings>
         </column>
 
-        <column name="slug">
+        <column name="slug" >
             <settings>
                 <filter>text</filter>
                 <editor>
