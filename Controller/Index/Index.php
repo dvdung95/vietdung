@@ -24,6 +24,7 @@ class Index extends Action
 
     public function execute()
     {
+
         $rsPage = $this->pageFactory->create();
 
         return $rsPage;
