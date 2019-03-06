@@ -63,9 +63,6 @@ class DataProvider extends AbstractDataProvider
         $items = $this->collection->getItems();
 
 
-
-
-
         foreach ($items as $blogg) {
             $data = $blogg->getData();
 
@@ -81,13 +78,12 @@ class DataProvider extends AbstractDataProvider
 
         }
 
-        $data = $this->dataPersistor->get('blogg');
-
+        $data = $this->dataPersistor->get('blog');
         if (!empty($data)) {
             $blogg = $this->collection->getNewEmptyItem();
             $blogg->setData($data);
             $this->loadedData[$blogg->getId()] = $blogg->getData();
-            $this->dataPersistor->clear('blogg');
+            $this->dataPersistor->clear('blog');
         }
         return $this->loadedData;
     }

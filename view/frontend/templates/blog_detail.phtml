@@ -1,0 +1,15 @@
+<style>
+    .title{
+        color: red;
+        margin-bottom: 10px;
+    }
+    img{
+        width: 300px;
+    }
+</style>
+<?php $blog = $this->getBlog(); echo $a = $this->getUrll();?>
+<div>
+    <div class="title"><?php echo $blog['title'];?></div>
+    <div class="image"><img src="<?php echo $a.$blog['image'];?>"></div>
+    <div class="des"><?php echo $blog['content']; ?></div>
+</div>

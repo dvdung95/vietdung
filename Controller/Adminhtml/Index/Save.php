@@ -24,7 +24,7 @@ class Save extends Action
     protected $dataProcessor;
     protected $dataPersistor;
 
-    const ADMIN_RESOURCE = 'Vietdung_Staff::save';
+    const ADMIN_RESOURCE = 'Vietdung_blog::save';
 
     public function __construct(Action\Context $context,
                                 BloggFactory $bloggFactory,
@@ -81,20 +81,25 @@ class Save extends Action
             }
 
             $model->setData($this->_filterBannerPostData($data));
-            $this->messageManager->addSuccess(__('You saved the staff.'));
 
             try {
                 $model->save();
-                $this->messageManager->addSuccess(__('You saved the staff.'));
-                $this->dataPersistor->clear('staff');
+                $this->messageManager->addSuccessMessage(__('You saved the blog.'));
+                $this->dataPersistor->clear('blog');
                 if ($this->getRequest()->getParam('back')) {
                     return $this->_redirect('*/*/edit', ['id' => $model->getId(), '_current' => true]);
                 }
                 return $this->_redirect('*/*/');
-            } catch (\Exception $e) {
+            }
+            catch (LocalizedException $e)
+            {
+                $this->dataPersistor->set('blog', $data);
+                $this->messageManager->addErrorMessage($e->getMessage());
+            }
+            catch (\Exception $e) {
                 $this->messageManager->addException($e, __('Something went wrong while saving the image.' . $e->getMessage()));
             }
-            $this->dataPersistor->set('staff', $data);
+            $this->dataPersistor->set('blog', $data);
             if ($this->getRequest()->getParam('id')) {
                 return $this->_redirect('*/*/edit', ['id' => $this->getRequest()->getParam('id')]);
             }

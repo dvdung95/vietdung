@@ -37,7 +37,7 @@ class ConfigTitle extends Column
             if(isset($item['slug']))
             {
                 $a = $item['title'];
-                $url = $this->storeManager->getStore()->getBaseUrl()."blogg/".$item['slug'];
+                $url = $this->storeManager->getStore()->getBaseUrl()."blogg/index/detail/id/".$item['id'];
                 $item['title'] = '<a href='.$url.'>'."$a".'</a>';
 //                $url = $this->storeManager->getStore()->getBaseUrl()."/blogg/detail/".$item['id'];
 //                $item[$name]['v'] = [
